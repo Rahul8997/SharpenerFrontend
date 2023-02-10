@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from '../Login.module.css';
+import classes from './Input.module.css';
 const InputComponent = (props) => {
     return (
         <div>
@@ -8,7 +8,7 @@ const InputComponent = (props) => {
                     className={`${classes.control} ${props.inputState.isValid === false ? classes.invalid : ''
                         }`}
                 >
-                    <label htmlFor={props.inputLabel}>E-Mail</label>
+                    <label htmlFor={props.inputLabel}>{props.inputLabel}</label>
                     <input
                         type={`${props.InputType}`}
                         id={`${props.InputId}`}

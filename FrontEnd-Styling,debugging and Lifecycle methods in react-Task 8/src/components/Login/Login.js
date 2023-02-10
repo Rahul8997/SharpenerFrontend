@@ -4,24 +4,24 @@ import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
 
-const emailReducer=(state,action)=>{
-  if(action.type==='USER_INPUT'){
-    return {value:action.val,isValid:action.val.includes('@')};
+const emailReducer = (state, action) => {
+  if (action.type === 'USER_INPUT') {
+    return { value: action.val, isValid: action.val.includes('@') };
   }
-  if(action.type==='USER_BLUR'){
-    return {value:state.value,isValid:state.value.includes('@')};
+  if (action.type === 'INPUT_BLUR') {
+    return { value: state.value, isValid: state.value.includes('@') };
   }
-  return {value:'',isValid:null}
+  return { value: '', isValid: false };
 };
 
-const passwordReducer=(state,action)=>{
-  if(action.type==='USER_INPUT'){
-    return {value:action.val,isValid:action.val.includes('@')};
+const passwordReducer = (state, action) => {
+  if (action.type === 'USER_INPUT') {
+    return { value: action.val, isValid: action.val.trim().length>6 };
   }
-  if(action.type==='USER_BLUR'){
-    return {value:state.value,isValid:state.value.includes('@')};
+  if (action.type === 'INPUT_BLUR') {
+    return { value: state.value, isValid: state.value.trim().length>6 };
   }
-  return {value:'',isValid:null}
+  return { value: '', isValid: false };
 };
 
 const Login = (props) => {
@@ -33,8 +33,8 @@ const Login = (props) => {
   const [collegeIsValid, setcollegeIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const[emailState,dispatchEmail]=useReducer(emailReducer,{value:'',isValid:false})
-  const[passwordState,dispatchPassword]=useReducer(passwordReducer,{value:'',isValid:false})
+  const[emailState,dispatchEmail]=useReducer(emailReducer,{value:'',isValid:null});
+  const[passwordState,dispatchPassword]=useReducer(passwordReducer,{value:'',isValid:null});
   
   // useEffect(()=>{
   //   setFormIsValid(
@@ -43,9 +43,10 @@ const Login = (props) => {
   // },[enteredEmail,enteredPassword,enteredCollege]);
 
   const emailChangeHandler = (event) => {
-    dispatchEmail({type:'USER_INPUT',val:event.target.value});
+    dispatchEmail({type: 'USER_INPUT', val: event.target.value});
+
     setFormIsValid(
-      emailState.value.includes('@') && event.target.value.trim().length > 6 && enteredCollege.trim().length>0
+      event.target.value.includes('@') && passwordState.value.trim().length > 6
     );
   };
 
@@ -53,7 +54,7 @@ const Login = (props) => {
     dispatchPassword({type:'USER_INPUT',val:event.target.value});
     // setEnteredPassword(event.target.value);
     setFormIsValid(
-      emailState.value.includes('@') && passwordState.value.trim().length > 6 && enteredCollege.trim().length>0
+      emailState.isValid && event.target.value.trim().length > 6 && enteredCollege.trim().length>0
     );
   };
   const collegeChangeHandler = (event) => {
@@ -63,8 +64,8 @@ const Login = (props) => {
     );
   };
 
-  const validateEmailHandler = () => {
-    dispatchEmail({type:'INPUT_BLUR'})
+   const validateEmailHandler = () => {
+    dispatchEmail({type: 'INPUT_BLUR'});
   };
 
   const validatePasswordHandler = () => {
@@ -75,7 +76,7 @@ const Login = (props) => {
     setcollegeIsValid(enteredCollege.trim().length > 0);
   };
 
-  const submitHandler = (event) => {
+   const submitHandler = (event) => {
     event.preventDefault();
     props.onLogin(emailState.value, passwordState.value,enteredCollege);
   };
@@ -83,7 +84,7 @@ const Login = (props) => {
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
-        <div
+      <div
           className={`${classes.control} ${
             emailState.isValid === false ? classes.invalid : ''
           }`}
@@ -139,3 +140,13 @@ const Login = (props) => {
 };
 
 export default Login;
+
+
+
+
+
+
+
+
+
+
