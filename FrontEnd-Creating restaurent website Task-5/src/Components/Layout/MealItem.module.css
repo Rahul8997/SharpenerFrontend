@@ -1,0 +1,25 @@
+.mealItem {
+    color: black;
+    background-color: white;
+    border-radius: 6px;
+    padding-left: 10px;
+}
+
+.mealItem h6 {
+    color: rgb(234, 132, 8);
+    font-weight: bold;
+}
+
+.mealItem h5 {
+    font-weight: bold;
+}
+.mealItem span {
+    font-style: italic;
+}
+
+.mealItemDIv {
+    background-color: white;
+    border-radius: 6px;
+    width: 50%;
+    margin: 0px auto;
+}
