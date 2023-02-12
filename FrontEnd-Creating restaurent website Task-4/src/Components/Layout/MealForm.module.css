@@ -1,0 +1,25 @@
+.mealForm{
+border: "2px solid red";
+width:125px;
+border-radius: 5px;
+float: right;
+margin-top: -5rem;
+margin-right: 1rem;
+}
+.mealForm div input{
+    width:50px;
+    margin-left: 5px;
+    float: right;
+}
+.mealForm div label{
+    font-weight: bold;
+}
+.mealForm div button{
+    border: none;
+    background-color: rgb(114, 5, 5);
+    color: white;
+    border-radius: 25px;
+    width: 90px;
+    margin: 11px 18px;
+    padding: 2px 0px;
+}
