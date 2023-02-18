@@ -1,0 +1,22 @@
+.cart-item img{
+  width: 100px;
+  height: 100px;
+}
+
+.cart-item span {
+  font-weight: bold;
+}
+
+.cart-item input{
+  height: 35px;
+  width: 50px;
+}
+
+.cart-item button{
+  width: 100px;
+  margin-left: 20px;
+}
+
+.total{
+  margin-right: 0;
+}
