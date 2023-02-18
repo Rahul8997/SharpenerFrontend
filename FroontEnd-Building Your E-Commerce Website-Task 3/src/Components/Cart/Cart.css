@@ -1,0 +1,23 @@
+.col img{
+  width: 100px;
+  height: 100px;
+}
+
+.col  span {
+  font-weight: bold;
+}
+
+.col input{
+  height: 35px;
+  width: 50px;
+  border-color: cyan;
+}
+
+.col button{
+  width: 80px;
+  margin-left: 10px;
+}
+
+.total{
+  margin-right: 0;
+}
