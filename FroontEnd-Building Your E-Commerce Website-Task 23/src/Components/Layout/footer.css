@@ -1,0 +1,39 @@
+.footer {
+    display: flex;
+    margin-top: 40px;
+    padding: 20px;
+    background: #56CCF2;
+}
+
+.footer-title {
+    text-align: center;
+    color: white;
+    width: 50%;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.footer-icons {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-icons ul {
+    list-style-type: none;
+    display: flex;
+}
+.footer-icons ul li{
+    padding: 10px;
+    margin: 0px 20px;
+}
+.footer-icons ul li a{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.footer-icons-image{
+    width: 2rem;
+}
