@@ -1,0 +1,10 @@
+.heading{
+    margin-top: 2px;
+    background-color: gray;
+    color: white;
+    height: 12rem;
+}
+.heading h1{
+    font-size: 5rem;
+    text-align: center;
+}
